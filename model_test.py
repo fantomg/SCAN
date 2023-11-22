@@ -6,7 +6,7 @@ from sklearn.cluster import KMeans
 test_data = pd.read_csv('test.csv', header=None)
 
 # 随机取样1000条数据
-test_data = test_data.sample(n=1000, random_state=42)
+test_data = test_data.sample(n=1000, random_state=72)
 
 # 加载训练好的模型
 model = joblib.load('model.pkl')
@@ -27,7 +27,7 @@ test_data.to_csv('predicted_test.csv', index=False, header=None)
 node_user_data = pd.read_csv('node_user.csv')
 
 # 聚类分析
-kmeans = KMeans(n_clusters=20, random_state=42)
+kmeans = KMeans(n_clusters=10, random_state=42)
 kmeans.fit(node_user_data.iloc[:, 0].values.reshape(-1, 1))
 
 # 获取预测结果和真实ID的聚类标签
